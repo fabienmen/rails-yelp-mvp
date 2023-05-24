@@ -1,0 +1,36 @@
+<div class="card">
+  <p>
+    <strong>Name:</strong>
+    <%= @restaurant.name %>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <%= @restaurant.address %>
+  </p>
+
+  <p>
+    <strong>Phone number:</strong>
+    <%= @restaurant.phone_number %>
+  </p>
+
+  <p>
+    <strong>Category:</strong>
+    <%= @restaurant.category.capitalize %>
+  </p>
+<div>
+
+<div>
+  <%# <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant) %>
+
+  <%= link_to "Write a review", new_restaurant_review_path(@restaurant) %>
+  <%= link_to "<- Back to restaurants", restaurants_path %>
+
+  <%# <%= button_to "Destroy this restaurant", @restaurant, method: :delete %>
+</div>
+
+<div>
+  <% @restaurant.reviews.each do |review| %>
+    <p><%= review.rating %> <%= review.content%></p>
+  <% end %>
+</div>
